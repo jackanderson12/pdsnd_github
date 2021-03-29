@@ -1,5 +1,5 @@
 import time
-import pandas as pd
+import pandas as pandas
 import numpy as np
 
 CITY_DATA = { 'chicago': 'chicago.csv',
@@ -51,13 +51,13 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
         # load data file into a dataframe
-    df = pd.read_csv(CITY_DATA[city])
+    df = pandas.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['Start Time'] = pandas.to_datetime(df['Start Time'])
 
     # extract month and day of week from Start Time to create new columns
-    df['month'] = pd.DatetimeIndex(df['Start Time']).month
+    df['month'] = pandas.DatetimeIndex(df['Start Time']).month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
 
