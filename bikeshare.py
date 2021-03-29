@@ -156,6 +156,9 @@ def user_stats(df):
 
 
     # TO DO: Display counts of gender
+    """Tries to get the gender information for the user if there is any
+       prints "No gender infromation for city!" If the city does not store gender
+       information"""
     try:
         gender = df['Gender'].dropna(axis = 0)
         gender = gender.value_counts()
@@ -164,6 +167,9 @@ def user_stats(df):
         print("No gender information for city!")
 
     # TO DO: Display earliest, most recent, and most common year of birth
+    """Tries to get the birth year information for the user if there is any
+       prints "No birth year infromation for city!" If the city does not store birth year
+       information"""
     try:
         birth_year = df['Birth Year'].dropna(axis = 0)
         earliest = birth_year.min()
