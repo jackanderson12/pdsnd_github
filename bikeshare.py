@@ -80,7 +80,7 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """Displays statistics on the most frequent times of travel of month, day, and hour"""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -104,7 +104,8 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """Displays statistics on the most common starting station,
+    the most common ending station, and the most common combination of stations."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -145,7 +146,7 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """Displays statistics on types of user, counts of the gender of user if availible, and birth year information of users if availible."""
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -181,6 +182,7 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
+    """Displays raw trip data that can be sorted. After the data is sorted it asks the user if they want to display 5 lines of data."""
     sort_by_list = ['Start Time', 'End Time', 'Trip Duration', 'Start Station', 'End Station', 'User Type']
     sort_by_prompt = str(input('Sort by the data column you want displayed from, Start Time, End Time, Trip Duration, Start Station, End Station, and User Type: '))
     if sort_by_prompt in sort_by_list:
