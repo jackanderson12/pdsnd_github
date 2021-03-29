@@ -1,5 +1,5 @@
 import time
-import pandas as pd
+import pandas as pandas
 import numpy as np
 
 CITY_DATA = { 'chicago': 'chicago.csv',
@@ -51,13 +51,13 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
         # load data file into a dataframe
-    df = pd.read_csv(CITY_DATA[city])
+    df = pandas.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['Start Time'] = pandas.to_datetime(df['Start Time'])
 
     # extract month and day of week from Start Time to create new columns
-    df['month'] = pd.DatetimeIndex(df['Start Time']).month
+    df['month'] = pandas.DatetimeIndex(df['Start Time']).month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
 
@@ -80,7 +80,7 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """Displays statistics on the most frequent times of travel of month, day, and hour"""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -104,7 +104,8 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """Displays statistics on the most common starting station,
+    the most common ending station, and the most common combination of stations."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -145,7 +146,7 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """Displays statistics on types of user, counts of the gender of user if availible, and birth year information of users if availible."""
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -172,13 +173,13 @@ def user_stats(df):
        information"""
     try:
         birth_year = df['Birth Year'].dropna(axis = 0)
-        earliest = birth_year.min()
-        most_recent = birth_year.max()
-        most_common = birth_year.value_counts().idxmax()
+        earliest_birth_year = birth_year.min()
+        most_recent_birth_year = birth_year.max()
+        most_common_birth_year = birth_year.value_counts().idxmax()
 
-        print("Earliest birth year: ",earliest)
-        print("Most recent birth year: ",most_recent)
-        print("Most common birth year: ",most_common)
+        print("Earliest birth year: ",earliest_birth_year)
+        print("Most recent birth year: ",most_recent_birth_year)
+        print("Most common birth year: ",most_common_birth_year)
     except KeyError:
         print("No birth year information for city!")
 
@@ -187,6 +188,7 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
+    """Displays raw trip data that can be sorted. After the data is sorted it asks the user if they want to display 5 lines of data."""
     sort_by_list = ['Start Time', 'End Time', 'Trip Duration', 'Start Station', 'End Station', 'User Type']
     sort_by_prompt = str(input('Sort by the data column you want displayed from, Start Time, End Time, Trip Duration, Start Station, End Station, and User Type: '))
     if sort_by_prompt in sort_by_list:
