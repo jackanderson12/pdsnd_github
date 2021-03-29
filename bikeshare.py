@@ -166,13 +166,13 @@ def user_stats(df):
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         birth_year = df['Birth Year'].dropna(axis = 0)
-        earliest = birth_year.min()
-        most_recent = birth_year.max()
-        most_common = birth_year.value_counts().idxmax()
+        earliest_birth_year = birth_year.min()
+        most_recent_birth_year = birth_year.max()
+        most_common_birth_year = birth_year.value_counts().idxmax()
 
-        print("Earliest birth year: ",earliest)
-        print("Most recent birth year: ",most_recent)
-        print("Most common birth year: ",most_common)
+        print("Earliest birth year: ",earliest_birth_year)
+        print("Most recent birth year: ",most_recent_birth_year)
+        print("Most common birth year: ",most_common_birth_year)
     except KeyError:
         print("No birth year information for city!")
 
