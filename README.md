@@ -13,5 +13,5 @@ Describe what your project is about and what it does
 ### bikeshare.py, chicago.csv, new_york_city.csv, and washington.csv
 Include the files used
 
-### The bikeshare project is a part of the Udacity data science with python nano degree program. Their github and information can be found here: "https://github.com/udacity"
+### The bikeshare project is a part of the Udacity data science with python nano degree program. The Udacity github and information can be found here: "https://github.com/udacity"
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
